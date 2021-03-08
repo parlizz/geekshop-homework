@@ -1,12 +1,16 @@
 from django.shortcuts import render
-
+import datetime
 from mainapp.models import Product, ProductCategory
 
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'mainapp/index.html')
+    dateTime = datetime.datetime.now()
+    content = {
+        'date': dateTime
+    }
+    return render(request, 'mainapp/index.html', content)
 
 
 def products(request, id=None):
